@@ -57,7 +57,7 @@ class Film extends CI_Controller {
 	    
 	    $input 		= $this->input->post('judul_film');
 	    $kodetampil = explode(' ',$input);
-	    $arr_input  = str_split($input);
+	    
 	    $singkat 	= "";
 
 	    if (count($kodetampil) == 2) {
@@ -67,11 +67,12 @@ class Film extends CI_Controller {
 		    $kode_film = $singkat.$batas;
 		    return $kode_film;
 	    }elseif (count($kodetampil) == 1) {
+	    	$arr_input  = str_split($input);
 			foreach ($arr_input as $row) {
-				if (preg_match('/^[AIUEOaiueo]/', $row[0])){
+				if (preg_match('/^[AIUEOaiueo]/', $row)){
 			   		
 			 	} else {
-			  		$singkat .= strtoupper(substr($row[0], 0,2));
+			  		$singkat .= strtoupper(substr($row, 0,2));
 			 	}
 			}
 			$kode_film = $singkat.$batas;
@@ -177,7 +178,7 @@ class Film extends CI_Controller {
 	{
 		$kd_film = $this->createCodeAdd();
 
-		print_r($kd_film); exit();
+		// print_r($kd_film); exit();
 
 		$date 	 = date_create($this->input->post('tgl_launch'));
 		$data = [

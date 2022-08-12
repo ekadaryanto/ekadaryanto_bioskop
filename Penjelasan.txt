@@ -1,0 +1,7 @@
+1. Untuk masuk ke halaman login http://localhost/bioskop/admin/login
+2. Username : eka_daryanto, Password : 12345
+
+Yang belum selesai :
+1. Jadwal Reservasi
+2. No 3. Point ke 5
+	
